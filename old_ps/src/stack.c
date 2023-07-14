@@ -6,11 +6,11 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 21:12:19 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/09 01:57:51 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:45:30 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "./push_swap.h"
+# include "./../push_swap.h"
 
 t_stack	*get_stack_bottom(t_stack *stack)
 {

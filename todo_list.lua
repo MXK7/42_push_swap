@@ -1,3 +1,0 @@
--- Fonction qui permet de faire les rotations, add, remove, swap
--- Fonction init/cree les stacks 
--- 

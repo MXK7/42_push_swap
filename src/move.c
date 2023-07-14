@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 17:50:27 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/14 19:41:00 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/07/14 19:46:13 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "./../push_swap.h"
 
-t_stack	*push(int value)
+int pop(t_stack **stack)
 {
-	t_stack	*new;
+    if (*stack == NULL)
+    {
+        printf("La pile est vide.\n");
+        return -1;
+    }
 
-	new = malloc(sizeof * new);
-	if (!new)
-		return (NULL);
-	new->value = value;
-	new->index = 0;
-	new->pos = -1;
-	new->target_pos = -1;
-	new->cost_a = -1;
-	new->cost_b = -1;
-	new->next = NULL;
-	return (new);
+    int value = (*stack)->value;
+    t_stack *temp = *stack;
+    *stack = (*stack)->next;
+    free(temp);
+    return value;
+}
+
+int is_empty(t_stack *stack)
+{
+    return stack == NULL;
 }

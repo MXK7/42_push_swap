@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:49:58 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/14 19:46:01 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:54:06 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,30 @@ typedef struct s_stack
 	int				cost_a;
 	int				cost_b;
 	struct s_stack	*next;
-
 }					t_stack;
 
-
 // ############# UTILS ############# //
-
+int					is_digit(char c);
+int					is_sign(char c);
+int					nb_cmp(const char *str1, const char *str2);
+void				exit_stack(t_stack **stack_a, t_stack **stack_b, int toggle);
+void				free_stack(t_stack **stack);
+long int			ft_atoi(const char *str);
 
 // ############# CORE ############# //
-int pop(t_stack **stack);
-int is_empty(t_stack *stack);
-
+t_stack				*stack_new(int value);
+void				stack_add_bottom(t_stack **stack, t_stack *new);
+t_stack				*get_stack_bottom(t_stack *stack);
+int					get_stack_size(t_stack *stack);
 
 // ############# INIT ############# //
-t_stack	*push(int value);
-
+void				assign_index(t_stack *stack_a, int ac);
+t_stack				*fill_stack_values(int ac, char **av);
 
 // ############# INSTRU. FCT. ############# //
-
+// TODO
 
 // ############# ALGO. ############# //
-void	radix_sort(int arr[], int n);
+// TODO
 
 #endif

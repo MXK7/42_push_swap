@@ -5,26 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 17:50:27 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/14 19:41:00 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/07/09 01:23:20 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/07/14 17:45:36 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "./../push_swap.h"
 
-t_stack	*push(int value)
+static void swap(t_stack *stack)
 {
-	t_stack	*new;
+    int tmp;
 
-	new = malloc(sizeof * new);
-	if (!new)
-		return (NULL);
-	new->value = value;
-	new->index = 0;
-	new->pos = -1;
-	new->target_pos = -1;
-	new->cost_a = -1;
-	new->cost_b = -1;
-	new->next = NULL;
-	return (new);
+    if (stack == NULL || stack->next == NULL)
+        return ;
+    tmp = stack->value;
+    stack->value = stack->next->value;
+    stack->next->value = tmp;
+	tmp = stack->index;
+	stack->index = stack->next->index;
+	stack->next->index = tmp;
+}
+
+void	do_sa(t_stack **stack_a)
+{
+	swap(*stack_a);
+	ft_putstr("sa\n");
+}
+
+void	do_sb(t_stack **stack_b)
+{
+	swap(*stack_b);
+	ft_putstr("sb\n");
+}
+
+void	do_ss(t_stack **stack_a, t_stack **stack_b)
+{
+	swap(*stack_a);
+	swap(*stack_b);
+	ft_putstr("ss\n");
 }

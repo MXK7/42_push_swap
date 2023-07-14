@@ -6,11 +6,11 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 18:51:40 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/09 02:07:15 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:47:15 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+# include "./../push_swap.h"
 
 t_stack	*fill_stack_values(int argc, char **argv)
 {

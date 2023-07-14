@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   imput_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpoussie <mpoussie@student.42lehavre.fr    +#+  +:+       +#+        */
+/*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 11:36:24 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/01 22:37:18 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:46:44 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+# include "./../push_swap.h"
 
 static int	args_nbr(char *str)
 {
