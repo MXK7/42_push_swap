@@ -6,8 +6,13 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 17:50:46 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/14 17:51:11 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/07/16 00:43:58 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "./../push_swap.h"
+
+int	is_empty(int stack)
+{
+	return (stack == 0 || stack == NULL);
+}

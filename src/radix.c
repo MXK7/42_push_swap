@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 17:50:27 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/14 19:51:07 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/07/16 00:37:44 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,5 @@ void	radix_sort(int arr[], int n)
 		exp *= 10;
 	}
 	free(bucket);
-}
+}:wq
+

@@ -6,7 +6,7 @@
 #    By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 17:19:09 by mpoussie          #+#    #+#              #
-#    Updated: 2023/07/09 02:08:07 by mpoussie         ###   ########.fr        #
+#    Updated: 2023/07/16 00:40:55 by mpoussie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,8 @@ RM = rm -rf
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS =	src/main.c \
-		src/imput_check.c \
-		src/init.c \
-		src/stack.c \
+		src/move.c \
+		src/radix.c \
 		src/swap.c \
 		src/utils.c
 
