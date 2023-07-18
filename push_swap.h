@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:49:58 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/16 00:45:13 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/07/18 21:30:27 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include <unistd.h>
 
 # define STACK_SIZE 100
+# define ERROR_ALLOC "A memory allocation error has occurred."
+# define EMPTY_STACK "The stack is empty."
+# define STACK_IS_EMPTY "The stack is now empty."
 
 typedef struct s_stack
 {
@@ -30,11 +33,12 @@ typedef struct s_stack
 	int				cost_a;
 	int				cost_b;
 	struct s_stack	*next;
-
 }					t_stack;
 
 // ############# UTILS ############# //
-int					is_empty(int stack);
+int					is_empty(t_stack *stack);
+long int			ft_atoi(const char *str);
+void				message(const char *str);
 
 // ############# CORE ############# //
 int					pop(t_stack **stack);
@@ -50,11 +54,11 @@ void				rra(int *arr_a, int size_a);
 void				rrb(int *arr_b, int size_b);
 void				rrr(int *arr_a, int size_a, int *arr_b, int size_b);
 
-// ############# INIT ############# //
+// ############# PUSH_SWAP ############# //
 t_stack				*push(t_stack **stack, int value, int i);
+t_stack				*create_stack(void);
+int					check_sorted(int arr[], int n);
 void				push_swap(int arr[], int n);
-
-// ############# INSTRU. FCT. ############# //
 
 // ############# ALGO. ############# //
 void				radix_sort(int arr[], int n);

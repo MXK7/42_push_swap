@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 22:43:08 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/16 00:37:42 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/07/18 21:28:46 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,18 @@ int	pop(t_stack **stack)
 
 	if (*stack == NULL)
 	{
-		printf("La pile est vide.\n");
-		// TODO: Change printf for ft_printf.
+		message(EMPTY_STACK);
 		return (-1);
 	}
 	value = (*stack)->value;
 	temp = *stack;
 	*stack = (*stack)->next;
 	free(temp);
+	if (*stack == NULL)
+		message(STACK_IS_EMPTY);
 	return (value);
 }
+
 /*
 	Mouvement : Swap A
 	- Échange les deux premiers éléments de la pile A
@@ -42,6 +44,7 @@ void	sa(int *arr_a, int size_a)
 		temp = arr_a[0];
 		arr_a[0] = arr_a[1];
 		arr_a[1] = temp;
+		message("sa\n");
 	}
 }
 
@@ -58,6 +61,7 @@ void	sb(int *arr_b, int size_b)
 		temp = arr_b[0];
 		arr_b[0] = arr_b[1];
 		arr_b[1] = temp;
+		message("sb\n");
 	}
 }
 
@@ -67,8 +71,19 @@ void	sb(int *arr_b, int size_b)
 */
 void	ss(int *arr_a, int size_a, int *arr_b, int size_b)
 {
-	sa(arr_a, size_a);
-	sb(arr_b, size_b);
+	int	temp;
+	int	temp2;
+
+	if (size_a >= 2 && size_b >= 2)
+	{
+		temp = arr_a[0];
+		arr_a[0] = arr_a[1];
+		arr_a[1] = temp;
+		temp2 = arr_b[0];
+		arr_b[0] = arr_b[1];
+		arr_b[1] = temp2;
+		message("ss\n");
+	}
 }
 
 /*
@@ -81,17 +96,22 @@ void	pa(int *arr_a, int *size_a, int *arr_b, int *size_b)
 
 	if (*size_b > 0)
 	{
-		for (i = *size_a; i > 0; i--)
+		i = *size_a;
+		while (i > 0)
 		{
 			arr_a[i] = arr_a[i - 1];
+			i--;
 		}
 		arr_a[0] = arr_b[0];
 		(*size_a)++;
-		for (i = 0; i < *size_b - 1; i++)
+		i = 0;
+		while (i < *size_b - 1)
 		{
 			arr_b[i] = arr_b[i + 1];
+			i++;
 		}
 		(*size_b)--;
+		message("pa\n");
 	}
 }
 
@@ -116,6 +136,7 @@ void	pb(int *arr_a, int *size_a, int *arr_b, int *size_b)
 			arr_a[i] = arr_a[i + 1];
 		}
 		(*size_a)--;
+		message("pb\n");
 	}
 }
 
@@ -132,11 +153,14 @@ void	ra(int *arr_a, int size_a)
 	if (size_a >= 2)
 	{
 		temp = arr_a[0];
-		for (i = 0; i < size_a - 1; i++)
+		i = 0;
+		while (i < size_a - 1)
 		{
 			arr_a[i] = arr_a[i + 1];
+			i++;
 		}
 		arr_a[size_a - 1] = temp;
+		message("ra\n");
 	}
 }
 
@@ -153,11 +177,14 @@ void	rb(int *arr_b, int size_b)
 	if (size_b >= 2)
 	{
 		temp = arr_b[0];
-		for (i = 0; i < size_b - 1; i++)
+		i = 0;
+		while (i < size_b - 1)
 		{
 			arr_b[i] = arr_b[i + 1];
+			i++;
 		}
 		arr_b[size_b - 1] = temp;
+		message("rb\n");
 	}
 }
 
@@ -167,8 +194,31 @@ void	rb(int *arr_b, int size_b)
 */
 void	rr(int *arr_a, int size_a, int *arr_b, int size_b)
 {
-	ra(arr_a, size_a);
-	rb(arr_b, size_b);
+	int	temp;
+	int	i;
+	int	temp2;
+	int	i2;
+
+	if (size_a >= 2 && size_b >= 2)
+	{
+		temp = arr_a[0];
+		i = 0;
+		while (i < size_a - 1)
+		{
+			arr_a[i] = arr_a[i + 1];
+			i++;
+		}
+		arr_a[size_a - 1] = temp;
+		temp2 = arr_b[0];
+		i2 = 0;
+		while (i2 < size_b - 1)
+		{
+			arr_b[i2] = arr_b[i2 + 1];
+			i2++;
+		}
+		arr_b[size_b - 1] = temp2;
+		message("rr\n");
+	}
 }
 
 /*
@@ -184,11 +234,14 @@ void	rra(int *arr_a, int size_a)
 	if (size_a >= 2)
 	{
 		temp = arr_a[size_a - 1];
-		for (i = size_a - 1; i > 0; i--)
+		i = size_a - 1;
+		while (i > 0)
 		{
 			arr_a[i] = arr_a[i - 1];
+			i--;
 		}
 		arr_a[0] = temp;
+		message("rra\n");
 	}
 }
 
@@ -205,11 +258,14 @@ void	rrb(int *arr_b, int size_b)
 	if (size_b >= 2)
 	{
 		temp = arr_b[size_b - 1];
-		for (i = size_b - 1; i > 0; i--)
+		i = size_b - 1;
+		while (i > 0)
 		{
 			arr_b[i] = arr_b[i - 1];
+			i--;
 		}
 		arr_b[0] = temp;
+		message("rrb\n");
 	}
 }
 
@@ -218,6 +274,29 @@ void	rrb(int *arr_b, int size_b)
 */
 void	rrr(int *arr_a, int size_a, int *arr_b, int size_b)
 {
-	rra(arr_a, size_a);
-	rrb(arr_b, size_b);
+	int	temp;
+	int	i;
+	int	temp2;
+	int	i2;
+
+	if (size_a >= 2 && size_b >= 2)
+	{
+		temp = arr_a[size_a - 1];
+		i = size_a - 1;
+		while (i > 0)
+		{
+			arr_a[i] = arr_a[i - 1];
+			i--;
+		}
+		arr_a[0] = temp;
+		temp2 = arr_b[size_b - 1];
+		i2 = size_b - 1;
+		while (i2 > 0)
+		{
+			arr_b[i2] = arr_b[i2 - 1];
+			i2--;
+		}
+		arr_b[0] = temp2;
+		message("rrr\n");
+	}
 }

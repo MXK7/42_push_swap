@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/16 00:45:56 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/07/18 21:28:59 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,62 +16,83 @@ void	push_swap(int arr[], int n)
 {
 	int		i;
 	t_stack	*stack;
-	int	current;
 	int		value;
+	int		top_value;
 
 	i = 0;
-	radix_sort(arr, n);
-	stack->cost_a = 0;
-	stack->cost_b = 0; // Initialiser la pile cost_b
+	stack = create_stack();
 	while (i < n)
 	{
 		push(&stack, arr[i], i);
 		i++;
 	}
-	while (!is_empty(stack->cost_a))
+	while (!is_empty(stack))
 	{
-		current = stack->cost_a;
 		value = pop(&stack);
-		if (stack->value % 2 == 0)
+		if (value % 2 == 0)
 			ra(arr, n); // Rotation vers le haut de la pile A
 		else
 			pb(arr, &n, arr, &n); // Pousser vers la pile B
-		if (stack->value < 10)
+		if (value < 10)
 			sa(arr, n); // Swap A
 		else
 			rb(arr, n); // Rotation vers le haut de la pile B
 	}
-	while (!is_empty(stack->cost_b))
+	while (!check_sorted(arr, n))
 	{
-		current = stack->cost_b;
-		value = pop(&stack);
-		push(&stack, value, stack->index);
-		pa(arr, &n, arr, &n); // Pousser vers la pile A
+		// Effectuer d'autres mouvements et opérations pour trier les piles
+		// en utilisant les mouvements disponibles (ra, pb, sa, rb, etc.)
+		// Exemple :
+		if (arr[0] > arr[1])
+			sa(arr, n); // Effectuer un swap sur la pile A si nécessaire
+		if (arr[0] > arr[n - 1])
+			ra(arr, n);
+		// Effectuer une rotation vers le haut de la pile A si nécessaire
+		if (!is_empty(stack))
+		{
+			top_value = stack->value;
+			if (arr[0] > top_value)
+			{
+				pb(arr, &n, arr, &n);    // Pousser vers la pile B si nécessaire
+				push(&stack, arr[0], 0); // Mettre à jour la pile cost_b
+			}
+			else
+			{
+				ra(arr, n);
+				// Effectuer une rotation vers le haut de la pile A
+				push(&stack, arr[0], 0); // Mettre à jour la pile cost_b
+			}
+		}
+		else
+		{
+			pb(arr, &n, arr, &n);    // Pousser vers la pile B si nécessaire
+			push(&stack, arr[0], 0); // Mettre à jour la pile cost_b
+		}
 	}
-	while (!is_empty(stack->cost_a) && !is_empty(stack->cost_a))
+	while (!is_empty(stack))
 		pop(&stack);
 }
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
-	int arr[] = {5, 2, 8, 3, 1};
-	int n = sizeof(arr) / sizeof(arr[0]);
+	int	size;
+	int	*arr;
+	int	i;
 
-	printf("Avant le tri : ");
-	for (int i = 0; i < n; i++)
+	if (argc < 2)
 	{
-		printf("%d ", arr[i]);
+		printf("Usage: ./push_swap <integer_list>\n");
+		return (1);
 	}
-	printf("\n");
-
-	push_swap(arr, n);
-
-	printf("Après le tri : ");
-	for (int i = 0; i < n; i++)
+	size = argc - 1;
+	arr = (int *)malloc(size * sizeof(int));
+	i = 0;
+	while (i < size)
 	{
-		printf("%d ", arr[i]);
+		arr[i] = ft_atoi(argv[i + 1]);
+		i++;
 	}
-	printf("\n");
-
+	push_swap(arr, size);
+	free(arr);
 	return (0);
 }
