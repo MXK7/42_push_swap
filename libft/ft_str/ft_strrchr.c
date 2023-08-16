@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/08/17 01:35:32 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/04/11 22:05:04 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/05/01 04:09:44 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "../libft.h"
 
-// int	main(int argc, char **argv)
-// {
-	// argv = NULL;
-	// if (argc < 2)
-	// {
-		// ft_printf("Usage: ./push_swap <integer_list>\n");
-		// return (1);
-	// }
-	// return (0);
-// }
-
-int main(void)
+char	*ft_strrchr(const char *str, int c)
 {
-	printf("a");
+	int	i;
+	int	i2;
+
+	i2 = 0;
+	while (str[i2])
+		i2++;
+	i = i2;
+	while (i >= 0)
+	{
+		if (str[i] == (char)c)
+			return ((char *)str + i);
+		i--;
+	}
+	return (NULL);
 }

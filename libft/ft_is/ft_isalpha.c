@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/08/17 01:35:32 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/04/12 02:14:12 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/05/01 04:08:14 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "../libft.h"
 
-// int	main(int argc, char **argv)
-// {
-	// argv = NULL;
-	// if (argc < 2)
-	// {
-		// ft_printf("Usage: ./push_swap <integer_list>\n");
-		// return (1);
-	// }
-	// return (0);
-// }
-
-int main(void)
+int	ft_isalpha(int c)
 {
-	printf("a");
+	return ((97 <= c && c <= 122) || (65 <= c && c <= 90));
 }

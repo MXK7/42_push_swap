@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/08/17 01:35:32 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/04/12 20:27:36 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/05/01 04:08:54 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "../libft.h"
 
-// int	main(int argc, char **argv)
-// {
-	// argv = NULL;
-	// if (argc < 2)
-	// {
-		// ft_printf("Usage: ./push_swap <integer_list>\n");
-		// return (1);
-	// }
-	// return (0);
-// }
-
-int main(void)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	printf("a");
+	size_t	i;
+
+	i = 0;
+	if (src > dest)
+	{
+		while (i < n)
+		{
+			((char *)dest)[i] = ((char *)src)[i];
+			i++;
+		}
+	}
+	if (src < dest)
+	{
+		while (n != 0)
+		{
+			n--;
+			((char *)dest)[n] = ((char *)src)[n];
+		}
+	}
+	return (dest);
 }

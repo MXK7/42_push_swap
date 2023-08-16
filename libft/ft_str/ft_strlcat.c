@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/08/17 01:35:32 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/04/11 22:04:38 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/05/01 04:09:26 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "../libft.h"
 
-// int	main(int argc, char **argv)
-// {
-	// argv = NULL;
-	// if (argc < 2)
-	// {
-		// ft_printf("Usage: ./push_swap <integer_list>\n");
-		// return (1);
-	// }
-	// return (0);
-// }
-
-int main(void)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	printf("a");
+	size_t	i;
+	size_t	length;
+
+	length = 0;
+	i = 0;
+	while (dest[length] && length < size)
+		length++;
+	while (src[i] && size && length + i < size - 1)
+	{
+		dest[length + i] = src[i];
+		i++;
+	}
+	if (length < size)
+		dest[length + i] = 0;
+	i = 0;
+	while (src[i])
+		i++;
+	return (length + i);
 }

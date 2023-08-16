@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/08/17 01:35:32 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/04/11 22:04:29 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/05/01 04:09:18 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "../libft.h"
 
-// int	main(int argc, char **argv)
-// {
-	// argv = NULL;
-	// if (argc < 2)
-	// {
-		// ft_printf("Usage: ./push_swap <integer_list>\n");
-		// return (1);
-	// }
-	// return (0);
-// }
-
-int main(void)
+char	*ft_strcpy(char *dest, char *src)
 {
-	printf("a");
+	int	i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

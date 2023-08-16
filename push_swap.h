@@ -6,13 +6,14 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:49:58 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/08/16 21:55:28 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/08/17 01:36:33 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "./libft/libft.h"
 # include <limits.h>
 # include <stddef.h>
 # include <stdio.h>

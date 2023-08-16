@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/08/17 01:35:32 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/04/16 23:11:22 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/05/01 04:09:33 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "../libft.h"
 
-// int	main(int argc, char **argv)
-// {
-	// argv = NULL;
-	// if (argc < 2)
-	// {
-		// ft_printf("Usage: ./push_swap <integer_list>\n");
-		// return (1);
-	// }
-	// return (0);
-// }
-
-int main(void)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	printf("a");
+	unsigned int	strlen;
+	unsigned int	i;
+	char			*result;
+	const char		*str;
+
+	str = s;
+	strlen = 0;
+	while (str[strlen])
+		strlen++;
+	result = malloc(strlen + 1);
+	if (result == NULL)
+		return (NULL);
+	i = 0;
+	while (*str)
+	{
+		result[i] = f(i, *str);
+		i++;
+		str++;
+	}
+	result[strlen] = '\0';
+	return (result);
 }

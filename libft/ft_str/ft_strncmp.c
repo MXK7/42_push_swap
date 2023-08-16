@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/08/17 01:35:32 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/04/14 03:22:26 by marvin            #+#    #+#             */
+/*   Updated: 2023/05/01 04:09:38 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "../libft.h"
 
-// int	main(int argc, char **argv)
-// {
-	// argv = NULL;
-	// if (argc < 2)
-	// {
-		// ft_printf("Usage: ./push_swap <integer_list>\n");
-		// return (1);
-	// }
-	// return (0);
-// }
-
-int main(void)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	printf("a");
+	int	i;
+
+	i = 0;
+	while (s1[i] && s1[i] == s2[i] && n > 0)
+	{
+		i++;
+		n--;
+	}
+	if (n == 0)
+		return (0);
+	return ((unsigned char)(s1[i]) - (unsigned char)(s2[i]));
 }

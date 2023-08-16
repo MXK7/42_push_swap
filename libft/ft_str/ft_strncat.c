@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/08/17 01:35:32 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/04/11 22:04:52 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/05/01 04:09:35 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "../libft.h"
 
-// int	main(int argc, char **argv)
-// {
-	// argv = NULL;
-	// if (argc < 2)
-	// {
-		// ft_printf("Usage: ./push_swap <integer_list>\n");
-		// return (1);
-	// }
-	// return (0);
-// }
-
-int main(void)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	printf("a");
+	int	i;
+	int	destlen;
+
+	i = 0;
+	destlen = ft_strlen(dest);
+	while (src[i] && nb > 0)
+	{
+		dest[destlen + i] = src[i];
+		i++;
+		nb--;
+	}
+	dest[destlen + i] = 0;
+	return (dest);
 }
