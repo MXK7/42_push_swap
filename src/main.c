@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/18 21:28:59 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/08/16 21:53:17 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	main(int argc, char *argv[])
 
 	if (argc < 2)
 	{
-		printf("Usage: ./push_swap <integer_list>\n");
+		ft_printf("Usage: ./push_swap <integer_list>\n");
 		return (1);
 	}
 	size = argc - 1;

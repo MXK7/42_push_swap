@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 17:50:27 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/26 20:51:10 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/08/16 21:51:58 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack	*push(t_stack **stack, int value, int i)
 	}
 	new->value = value;
 	new->index = i;
-	new->pos = 0;
+	new->pos = 0; 
 	new->target_pos = 0;
 	new->cost_a = 0;
 	new->cost_b = 0;
