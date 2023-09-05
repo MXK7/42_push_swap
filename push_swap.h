@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:49:58 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/08/17 01:36:33 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:16:09 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,30 @@
 # define ERROR_ALLOC "A memory allocation error has occurred."
 # define EMPTY_STACK "The stack is empty."
 # define STACK_IS_EMPTY "The stack is now empty."
+# define ERROR_ARGS "The args is not numbers."
 
-typedef struct s_stack
+typedef struct s_data
 {
-	int				value;
-	int				index;
-	int				pos;
-	int				target_pos;
-	int				cost_a;
-	int				cost_b;
-	struct s_stack	*next;
-}					t_stack;
+	int	a;
+	int	b;
+	int	c;
+	int	big_integer;
+	int	small_integer;
+	int	count_action;
+	int	*tab;
+}		t_data;
 
 // ############# UTILS ############# //
+void	ps_free(char **str);
 
 // ############# CORE ############# //
+int		ps_check_args(int argc, char **argv);
+void	ps_init_nbr(t_data *stack, int argc);
+void	ps_init_index(t_data *stack, int argc, int *storage);
 
 // ############# ROTATE ############# //
 
 // ############# ALGO. ############# //
+int 	ps_sort_5(t_data *stack_a, t_data *stack_b);
 
 #endif

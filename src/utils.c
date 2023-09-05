@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/19 08:18:07 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/08/29 19:54:06 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/08/22 03:14:51 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/08/30 19:20:33 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "./../push_swap.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ps_free(char **str)
 {
-	if (lst == NULL)
-		return ;
-	if (del)
-		del(lst->content);
-	free(lst);
+	int	i;
+
+	i = ft_strlen(*str);
+	while (i >= 0)
+	{
+		free(str[i]);
+		i--;
+	}
 }

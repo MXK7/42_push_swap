@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 05:49:13 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/05/01 19:25:35 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/08/30 17:25:20 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ char				*ft_unsigned_itoa(unsigned int nbr);
 #  define OPEN_MAX 2048
 # endif
 
-char	*get_next_line(int fd);
-char	*ft_gnl_strjoin(char *s1, char *s2);
+char				*get_next_line(int fd);
+char				*ft_gnl_strjoin(char *s1, char *s2);
 
 #endif
