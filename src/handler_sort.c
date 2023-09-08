@@ -6,11 +6,27 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 09:57:14 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/05 19:23:51 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/08 17:47:49 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../push_swap.h"
+
+void	ps_sort_3(t_data *stack_a, t_data *stack_b)
+{
+	int	size_b;
+
+	size_b = 0;
+	if (stack_a->tab[0] > stack_a->tab[1])
+		sa(stack_a);
+	else
+		ra(stack_a);
+	while (stack_b->tab[size_b] > 0)
+	{
+		pb(stack_a, stack_b);
+		size_b++;
+	}
+}
 
 void	ps_sort_5(t_data *stack_a, t_data *stack_b)
 {

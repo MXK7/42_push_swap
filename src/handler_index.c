@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:39:42 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/05 09:55:10 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/07 09:16:57 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ps_init_index(t_data *stack, int argc, int *storage)
 	i = 0;
 	while (i < (argc - 1))
 	{
+		printf("%d\n", stack->tab[i]);
 		stack->tab[i] = storage[i];
 		i++;
 	}

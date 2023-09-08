@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:49:58 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/05 19:16:09 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/06 15:22:47 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,13 @@ int		ps_check_args(int argc, char **argv);
 void	ps_init_nbr(t_data *stack, int argc);
 void	ps_init_index(t_data *stack, int argc, int *storage);
 
-// ############# ROTATE ############# //
+// ############# ACTIONS ############# //
+void	sa(t_data *stack_a);
+void	ra(t_data *stack_a);
+void	pb(t_data *stack_a, t_data *stack_b);
 
 // ############# ALGO. ############# //
-int 	ps_sort_5(t_data *stack_a, t_data *stack_b);
+int		ps_sort_5(t_data *stack_a, t_data *stack_b);
+void	ps_sort_3(t_data *stack_a, t_data *stack_b);
 
 #endif

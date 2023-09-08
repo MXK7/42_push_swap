@@ -6,7 +6,7 @@
 #    By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 17:19:09 by mpoussie          #+#    #+#              #
-#    Updated: 2023/09/05 09:58:39 by mpoussie         ###   ########.fr        #
+#    Updated: 2023/09/06 15:19:31 by mpoussie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ SRCS =	src/check_args.c \
 		src/handler_index.c \
 		src/handler_sort.c \
 		src/utils.c \
+		src/move.c \
+		src/move2.c \
 		src/main.c \
 
 OBJS = $(SRCS:.c=.o)
