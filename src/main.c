@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/10 18:19:06 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:40:29 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ int	main(int argc, char **argv)
 		ps_sort_3(&stack_a, &stack_b);
 		return (0);
 	}
-	// while (stack_a.a != 3)
-		// ps_sort_a(&stack_a, &stack_b, argc);
-	// ps_sort_3_last(&stack_a);
-	// ps_sort_b(&stack_a, &stack_b);
-	// ft_printf("%d", argv[stack_a.tab[stack_a.a]]);
+	else
+	{
+		ps_sort(&stack_a, &stack_b, stack_a.a);
+		return(0);
+	}
 	return (0);
 }

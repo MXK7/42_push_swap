@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:49:58 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/10 17:54:58 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/11 18:09:55 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "./libft/libft.h"
 # include <limits.h>
+# include <stdbool.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -55,11 +56,9 @@ void	rra(t_data *stack_a);
 void	rrb(t_data *stack_b);
 
 // ############# ALGO. ############# //
-void	ps_new_calculate(t_data *stack_a, int argc);
-void	ps_sort_a(t_data *stack_a, t_data *stack_b, int argc);
-void	ps_sort_b(t_data *stack_a, t_data *stack_b);
+bool	is_sorted(t_data *stack);
 void	ps_sort_3(t_data *stack_a, t_data *stack_b);
-void	ps_sort_3_last(t_data *stack_a);
 void	ps_sort_5(t_data *stack_a, t_data *stack_b);
+void	ps_sort(t_data *stack_a, t_data *stack_b, int size);
 
 #endif
