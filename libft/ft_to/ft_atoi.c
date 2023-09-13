@@ -6,12 +6,11 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 03:25:50 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/13 02:22:22 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:44:32 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include <stdio.h>
 
 int	ft_atoi(const char *str)
 {
@@ -22,8 +21,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	j = 1;
 	result = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r')
+	while ((9 <= str[i] && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{

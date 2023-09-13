@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 02:16:43 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/13 17:36:22 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:43:11 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	__ps_sort_3(t_data *stack_a)
 		rra(stack_a);
 	}
 }
+
 void	ps_sort_3(t_data *stack_a)
 {
 	__ps_sort_3(stack_a);
