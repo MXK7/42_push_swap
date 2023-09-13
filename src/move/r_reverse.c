@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 02:13:22 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/13 02:14:30 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:55:22 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	rra(t_data *stack_a)
 		i--;
 	}
 	stack_a->tab[0] = tmp;
-    ft_printf("rra\n");
+	ft_printf("rra\n");
 }
 
 void	rrb(t_data *stack_b)
@@ -41,5 +41,5 @@ void	rrb(t_data *stack_b)
 		i--;
 	}
 	stack_b->tab[0] = tmp;
-    ft_printf("rrb\n");
+	ft_printf("rrb\n");
 }

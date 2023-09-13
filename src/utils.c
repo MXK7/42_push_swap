@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 03:14:51 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/13 02:24:49 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:47:54 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ void	ps_free(t_data *stack_a, t_data *stack_b)
 	free(stack_b->tab);
 }
 
-static int ps_white_space(char c)
+static int	ps_white_space(char c)
 {
 	return ((9 <= c && c <= 13) || c == ' ');
 }
+
 long	ps_atoi(const char *str)
 {
 	int	i;
