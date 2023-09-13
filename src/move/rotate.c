@@ -1,40 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 03:25:50 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/13 02:22:22 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/09/13 02:13:26 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/09/13 02:13:58 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
-#include <stdio.h>
+#include "./../../push_swap.h"
 
-int	ft_atoi(const char *str)
+void	ra(t_data *stack_a)
 {
 	int	i;
-	int	j;
-	int	result;
+	int	tmp;
 
 	i = 0;
-	j = 1;
-	result = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	tmp = stack_a->tab[0];
+	while (i < stack_a->a - 1)
 	{
-		if (str[i] == '-')
-			j = j * -1;
+		stack_a->tab[i] = stack_a->tab[i + 1];
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	stack_a->tab[i] = tmp;
+	ft_printf("ra\n");
+}
+
+void	rb(t_data *stack_b)
+{
+	int	i;
+	int	temp;
+
+	i = 0;
+	temp = stack_b->tab[0];
+	while (i < stack_b->a - 1)
 	{
-		result = result * 10 + (str[i] - '0');
+		stack_b->tab[i] = stack_b->tab[i + 1];
 		i++;
 	}
-	return (result * j);
+	stack_b->tab[i] = temp;
+	ft_printf("rb\n");
 }

@@ -6,7 +6,7 @@
 #    By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 17:19:09 by mpoussie          #+#    #+#              #
-#    Updated: 2023/09/11 18:10:00 by mpoussie         ###   ########.fr        #
+#    Updated: 2023/09/13 02:18:32 by mpoussie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,15 @@ RM = rm -rf
 CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
 
-SRCS =	src/check_args.c \
+SRCS =	src/utils.c \
+		src/check_args.c \
 		src/handler_index.c \
-		src/handler_sort.c \
-		src/utils.c \
-		src/move.c \
-		src/move2.c \
+		src/sort/stack.c \
+		src/sort/numbers.c \
+		src/move/push.c \
+		src/move/swap.c \
+		src/move/rotate.c \
+		src/move/r_reverse.c \
 		src/main.c \
 
 OBJS = $(SRCS:.c=.o)

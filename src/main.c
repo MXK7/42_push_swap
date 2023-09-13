@@ -6,19 +6,11 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/11 17:40:29 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/13 02:42:52 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../push_swap.h"
-
-// void	ps_print(t_data *stack, char **argv)
-// {
-//     for (int i = 0; i != stack->a; i++)
-// 	{
-//         ft_printf("Element %d : %d\n", i, argv[stack->tab[i]]);
-//     }
-// }
 
 static void	init_data(t_data *stack, int argc)
 {
@@ -55,29 +47,21 @@ int	main(int argc, char **argv)
 	t_data	stack_b;
 
 	if (ps_check_args(argc, argv))
-		return (ft_printf(ERROR_ARGS));
+		return (0);
 	if (init_stack(&stack_a, &stack_b, argc))
 		return (ft_printf(ERROR_ALLOC));
 	while (stack_a.a < argc - 1)
 	{
-		stack_a.tab[stack_a.a] = ft_atoi(argv[stack_a.a + 1]);
+		stack_a.tab[stack_a.a] = ps_atoi(argv[stack_a.a + 1]);
 		stack_a.a++;
 	}
 	ps_init_nbr(&stack_a, argc);
 	if (argc == 6)
-	{
 		ps_sort_5(&stack_a, &stack_b);
-		return (0);
-	}
-	else if (argc == 4)
-	{
-		ps_sort_3(&stack_a, &stack_b);
-		return (0);
-	}
-	else
-	{
-		ps_sort(&stack_a, &stack_b, stack_a.a);
-		return(0);
-	}
+	while (stack_a.a != 3)
+		ps_sort_a(&stack_a, &stack_b);
+	ps_sort_3(&stack_a);
+	ps_sort_b(&stack_a, &stack_b);
+	ps_free(&stack_a, &stack_b);
 	return (0);
 }

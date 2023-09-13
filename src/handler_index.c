@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:39:42 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/10 18:11:25 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/13 02:17:56 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	ps_init_nbr(t_data *stack, int argc)
 				count++;
 			x++;
 		}
-		printf("%d\n", stack->tab[count - 1]);
 		storage[i] = count;
 		i++;
 	}
+	stack->size = argc - 1;
 	ps_init_index(stack, argc, storage);
 	free(storage);
 }
