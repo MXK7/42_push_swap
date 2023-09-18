@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 03:14:51 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/13 16:47:54 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/04/12 03:25:50 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/09/13 17:44:32 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./../push_swap.h"
+#include "../libft.h"
 
-void	ps_free(t_data *stack_a, t_data *stack_b)
-{
-	free(stack_a->tab);
-	free(stack_b->tab);
-}
-
-static int	ps_white_space(char c)
-{
-	return ((9 <= c && c <= 13) || c == ' ');
-}
-
-long	ps_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	j;
@@ -32,7 +21,7 @@ long	ps_atoi(const char *str)
 	i = 0;
 	j = 1;
 	result = 0;
-	while (ps_white_space(str[i]))
+	while ((9 <= str[i] && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{

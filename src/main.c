@@ -6,129 +6,63 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/07/20 07:32:43 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:26:02 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../push_swap.h"
 
-static void	free_stack(t_stack *stack)
+static void	init_data(t_data *stack, t_data *stack_a)
 {
-	t_stack	*temp;
-
-	while (stack)
-	{
-		temp = stack;
-		stack = stack->next;
-		free(temp);
-	}
-}
-
-// Fonction d'échange d'éléments dans un tableau
-void swap(int arr[], int i, int j) {
-    int temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-}
-
-// Fonction de partition pour quicksort
-int partition(int arr[], int low, int high) {
-    int pivot = arr[high];
-    int i = low - 1;
-    for (int j = low; j < high; j++) {
-        if (arr[j] <= pivot) {
-            i++;
-            swap(arr, i, j);
-        }
-    }
-    swap(arr, i + 1, high);
-    return i + 1;
-}
-
-// Fonction de tri rapide (quicksort) pour trier un tableau
-void quicksort(int arr[], int low, int high) {
-    if (low < high) {
-        int pivot = partition(arr, low, high);
-        quicksort(arr, low, pivot - 1);
-        quicksort(arr, pivot + 1, high);
-    }
-}
-
-void	push_swap(int arr[], int n)
-{
-	int		i;
-	t_stack	*stack;
-	// int		value;
-	int		top_value;
-
-	i = 0;
-	stack = create_stack();
-	while (i < n)
-	{
-		push(&stack, arr[i], i);
-		i++;
-	}
-	while (!is_empty(stack))
-	{
-		value = pop(&stack);
-		if (value % 2 == 0)
-			ra(arr, n); // Rotation vers le haut de la pile A
-		else
-			pb(arr, &n, arr, &n); // Pousser vers la pile B
-		if (value < 10)
-			sa(arr, n); // Swap A
-		else
-			rb(arr, n); // Rotation vers le haut de la pile B
-	}
-    while (!check_sorted(arr, n))
-    {
-        if (arr[0] > arr[1])
-            sa(arr, n); // Effectuer un swap sur la pile A si nécessaire
-        if (arr[0] > arr[n - 1])
-            ra(arr, n); // Effectuer une rotation vers le haut de la pile A si nécessaire
-        if (!is_empty(stack))
-        {
-            top_value = stack->value;
-            if (arr[0] > top_value)
-            {
-                pb(arr, &n, arr, &n);    // Pousser vers la pile B si nécessaire
-                push(&stack, arr[0], 0); // Mettre à jour la pile cost_b
-            }
-            else
-            {
-                ra(arr, n);             // Effectuer une rotation vers le haut de la pile A
-                push(&stack, arr[0], 0); // Mettre à jour la pile cost_b
-            }
-        }
-        else
-        {
-            pb(arr, &n, arr, &n);    // Pousser vers la pile B si nécessaire
-            push(&stack, arr[0], 0); // Mettre à jour la pile cost_b
-        }
-    }
-	free_stack(stack); // Libérer la mémoire utilisée par la pile
-}
-
-int	main(int argc, char *argv[])
-{
-	int	size;
-	int	*arr;
 	int	i;
 
-	if (argc < 2)
-	{
-		message("Usage: ./push_swap <integer_list>");
-		return (1);
-	}
-	size = argc - 1;
-	arr = (int *)malloc(size * sizeof(int));
 	i = 0;
-	while (i < size)
+	while (i < stack_a->size - 1)
 	{
-		arr[i] = ft_atoi(argv[i + 1]);
+		stack->tab[i] = -1;
 		i++;
 	}
-	push_swap(arr, size);
-	free(arr);
+	stack->a = 0;
+	stack->count_action = 0;
+	stack->big_integer = (stack_a->size - 1) * 2 / 3;
+	stack->small_integer = (stack_a->size - 1) / 3;
+}
+
+static int	init_stack(t_data *stack_a, t_data *stack_b)
+{
+	stack_a->tab = malloc(sizeof(int) * (stack_a->size - 1));
+	if (!stack_a->tab)
+		return (1);
+	stack_b->tab = malloc(sizeof(int) * (stack_a->size - 1));
+	if (!stack_b->tab)
+		return (1);
+	init_data(stack_a, stack_a);
+	init_data(stack_b, stack_a);
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	t_data	stack_a;
+	t_data	stack_b;
+
+	stack_a.size = argc;
+	if (ps_check_args(&stack_a, argv))
+		return (0);
+	if (init_stack(&stack_a, &stack_b))
+		return (ft_printf(ERROR_ALLOC));
+	while (stack_a.a < stack_a.size - 1)
+	{
+		stack_a.tab[stack_a.a] = ps_atoi(argv[stack_a.a + 1]);
+		stack_a.a++;
+	}
+	ps_init_nbr(&stack_a);
+	if (argc == 6)
+		ps_sort_5(&stack_a, &stack_b);
+	while (stack_a.a != 3)
+		ps_sort_a(&stack_a, &stack_b);
+	ps_sort_3(&stack_a);
+	ps_sort_b(&stack_a, &stack_b);
+	ps_free(&stack_a, &stack_b);
 	return (0);
 }
