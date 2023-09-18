@@ -5,45 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 03:14:51 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/13 16:47:54 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/07/14 17:50:46 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/07/20 07:35:50 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../push_swap.h"
 
-void	ps_free(t_data *stack_a, t_data *stack_b)
+int	is_empty(t_stack *stack)
 {
-	free(stack_a->tab);
-	free(stack_b->tab);
+	return (stack == NULL);
 }
 
-static int	ps_white_space(char c)
+static int	is_digit(char c)
 {
-	return ((9 <= c && c <= 13) || c == ' ');
+	return (c >= '0' && c <= '9');
 }
 
-long	ps_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	i;
-	int	j;
-	int	result;
+	int			is_negative;
+	long int	nbr;
+	int			i;
 
 	i = 0;
-	j = 1;
-	result = 0;
-	while (ps_white_space(str[i]))
+	nbr = 0;
+	is_negative = 1;
+	if (str[i] == '+')
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	else if (str[i] == '-')
 	{
-		if (str[i] == '-')
-			j = j * -1;
+		is_negative *= -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (is_digit(str[i]))
 	{
-		result = result * 10 + (str[i] - '0');
+		nbr = (nbr * 10) + (str[i] - '0');
 		i++;
 	}
-	return (result * j);
+	return (nbr * is_negative);
+}
+
+void	message(const char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	write(1, "\n", 1);
 }
