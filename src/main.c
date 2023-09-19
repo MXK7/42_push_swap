@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 17:50:29 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/13 17:26:02 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:10:46 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ static void	init_data(t_data *stack, t_data *stack_a)
 
 static int	init_stack(t_data *stack_a, t_data *stack_b)
 {
-	stack_a->tab = malloc(sizeof(int) * (stack_a->size - 1));
+	stack_a->tab = malloc(sizeof(int) * (stack_a->size));
 	if (!stack_a->tab)
 		return (1);
-	stack_b->tab = malloc(sizeof(int) * (stack_a->size - 1));
+	stack_b->tab = malloc(sizeof(int) * (stack_a->size));
 	if (!stack_b->tab)
 		return (1);
 	init_data(stack_a, stack_a);
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 	t_data	stack_b;
 
 	stack_a.size = argc;
-	if (ps_check_args(&stack_a, argv))
+	if (ps_check_args(&stack_a, argv) != true)
 		return (0);
 	if (init_stack(&stack_a, &stack_b))
 		return (ft_printf(ERROR_ALLOC));

@@ -6,66 +6,63 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 03:09:02 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/13 15:16:25 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:42:31 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./../push_swap.h"
 
-static int	ps_check_sort(t_data *stack_a, char **argv)
+static bool	ps_contains(int nbr, char **argv, int i)
 {
-	int	i;
-
-	i = 1;
-	while (i < stack_a->size - 1)
+	i++;
+	while (argv[i])
 	{
-		if (ps_atoi(argv[i]) > ps_atoi(argv[i + 1]))
-			return (0);
+		if (ps_atoi(argv[i]) == nbr)
+			return (true);
 		i++;
 	}
-	return (1);
+	return (false);
 }
 
-static int	ps_neg_nbr(char *str)
+static bool	ps_check_args_range(t_data *stack_a, char **argv)
 {
-	return ((*str == '-') - (*str >= 48 && *str <= 57));
-}
+	int		i;
+	long	tmp;
+	char	**args;
 
-static int	ps_check_args_range(t_data *stack_a, char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (i < stack_a->size - 1)
+	i = 0;
+	if (stack_a->size == 2)
+		args = ft_split(argv[1], ' ');
+	else
 	{
-		j = i + 1;
-		while (j < stack_a->size - 1)
-		{
-			if (ps_atoi(argv[j]) == ps_atoi(argv[i]) || !ps_neg_nbr(argv[j])
-				|| !ps_neg_nbr(argv[1]) || ps_atoi(argv[j]) < INT_MIN
-				|| ps_atoi(argv[j]) > INT_MAX || ps_atoi(argv[1]) < INT_MIN
-				|| ps_atoi(argv[1]) > INT_MAX)
-			{
-				return (1);
-			}
-			j++;
-		}
+		i = 1;
+		args = argv;
+	}
+	while (args[i])
+	{
+		tmp = ps_atoi(args[i]);
+		if (ps_contains(tmp, args, i))
+			return (false);
+		if (ft_isdigit(tmp))
+			return (false);
+		if (tmp < INT_MAX || tmp > INT_MIN)
+			return (false);
 		i++;
 	}
-	return (0);
+	return (true);
 }
 
-int	ps_check_args(t_data *stack_a, char **argv)
+bool	ps_check_args(t_data *stack_a, char **argv)
 {
 	if (stack_a->size < 3)
-		return (0);
-	if (ps_check_sort(stack_a, argv))
-		return (1);
-	if (ps_check_args_range(stack_a, argv))
 	{
-		printf(ERROR_ARGS);
-		return (1);
+		ft_printf(ERROR_MIN_ARGS);
+		return (false);
 	}
-	return (0);
+	if (ps_check_args_range(stack_a, argv) == false)
+	{
+		ft_printf(ERROR_ARGS);
+		return (false);
+	}
+	return (true);
 }

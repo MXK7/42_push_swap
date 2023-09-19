@@ -6,7 +6,7 @@
 /*   By: mpoussie <mpoussie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 10:49:58 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/09/13 15:24:03 by mpoussie         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:42:12 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 # define ERROR_ALLOC "A memory allocation error has occurred."
 # define EMPTY_STACK "The stack is empty."
 # define STACK_IS_EMPTY "The stack is now empty."
-# define ERROR_ARGS "The args is not numbers."
+# define ERROR_ARGS "The args is not numbers or negative number."
+# define ERROR_MIN_ARGS "The number of arguments must be greater than 2."
+
 
 typedef struct s_data
 {
@@ -43,7 +45,7 @@ void	ps_free(t_data *stack_a, t_data *stack_b);
 long	ps_atoi(const char *str);
 
 // ############# CORE ############# //
-int		ps_check_args(t_data *stack_a, char **argv);
+bool	ps_check_args(t_data *stack_a, char **argv);
 void	ps_init_nbr(t_data *stack_a);
 
 // ############# ACTIONS ############# //
